@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 
@@ -85,18 +85,19 @@ WSGI_APPLICATION = 'programy_lekowe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-default_dburl = ''
+default_dburl = 'sqlite:///'+os.path.join(BASE_DIR,'db.sqlite3')
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'programy_lekowe',
-        'USER':'postgres',
-        'PASSWORD':'gunt1234',
-        'HOST':'159.65.197.227',
-        'PORT':'5433'
+    'default': config('DATABASE_URL',default=default_dburl,cast=dburl),
+        #{
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': 'programy_lekowe',
+        #'USER':'postgres',
+        #'PASSWORD':'gunt1234',
+        #'HOST':'159.65.197.227',
+        #'PORT':'5433'
 
-    }
+    #}
 }
 
 REST_FRAMEWORK = {

@@ -1,1 +1,1 @@
-web:gunicorn programy_lekowe.wsgi --log-file -
+web: gunicorn programy_lekowe.wsgi --log-file -
