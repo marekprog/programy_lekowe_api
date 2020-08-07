@@ -10,7 +10,7 @@ class Therapy(models.Model):
     zaawansowanie = ArrayField(models.CharField(max_length=50),blank=True,null=True)
     zmiany_mierzalne = models.BooleanField(null=True)
     brak_przerzutow_OUN = models.BooleanField(null=True)
-    stopien_sprawnosci = ArrayField(models.CharField(max_length=10),null=True)
+    stopien_sprawnosci = ArrayField(models.CharField(max_length=10),blank=True,null=True)
     wczesniejsze_leczenie_systemowe_zp_raka_pluca = models.BooleanField(null=True)
     wczesniejsze_leczenie_systemowe_zp_raka_pluca_incl_anty_ALK = models.BooleanField(null=True)
     wykluczenie_przeciwwskazan = models.BooleanField(null=True)
